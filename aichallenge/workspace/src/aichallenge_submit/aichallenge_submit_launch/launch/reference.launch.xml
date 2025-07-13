@@ -98,7 +98,7 @@
     <!-- twist2accel -->
     <group>
       <node pkg="twist2accel" exec="twist2accel" name="twist2accel" output="screen">
-        <param name="accel_lowpass_gain" value="0.95"/>
+        <param name="accel_lowpass_gain" value="0.9"/>
         <param name="use_odom" value="true"/>
         <remap from="input/odom" to="/localization/kinematic_state"/>
         <remap from="input/twist" to="/localization/twist_estimator/twist_with_covariance"/>
@@ -131,8 +131,8 @@
 
   <node pkg="simple_pure_pursuit" exec="simple_pure_pursuit" name="simple_pure_pursuit_node" output="screen">
     <param name="use_external_target_vel" value="true"/>
-    <param name="external_target_vel" value="8.0"/>
-    <param name="lookahead_gain" value="0.4"/>
+    <param name="external_target_vel" value="9.0"/>
+    <param name="lookahead_gain" value="0.5"/>
     <param name="lookahead_min_distance" value="3.5"/>
     <param name="speed_proportional_gain" value="1.0"/>
     <param name="steering_tire_angle_gain" value="$(var steering_tire_angle_gain_var)"/>
