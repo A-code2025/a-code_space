@@ -144,6 +144,7 @@ source /aichallenge/workspace/install/setup.bash
 sudo ip link set multicast on lo
 sudo sysctl -w net.core.rmem_max=2147483647 >/dev/null
 
+
 # Start AWSIM with nohup
 echo "Start AWSIM"
 nohup /aichallenge/run_simulator.bash >/dev/null &
@@ -181,6 +182,9 @@ sleep 3
 PID_UPDATER=$!
 echo "$PID_UPDATER" >>"$PID_FILE"
 
+source /aichallenge/workspace/install/setup.bash
+ros2 run xy_logger xy_logger &
+
 # Start recording rviz2
 echo "Start screen capture"
 until (ros2 service type /debug/service/capture_screen >/dev/null); do
@@ -216,3 +220,5 @@ python3 /aichallenge/workspace/src/aichallenge_system/script/result-converter.py
 
 # If AWSIM finished naturally, we'll proceed with the rest of the cleanup
 cleanup
+
+
