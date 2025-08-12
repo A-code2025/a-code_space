@@ -183,6 +183,7 @@ PID_UPDATER=$!
 echo "$PID_UPDATER" >>"$PID_FILE"
 
 source /aichallenge/workspace/install/setup.bash
+ros2 run traj_follower_py traj_follower --ros-args -p traj_csv:=/aichallenge/workspace/src/traj_follower_py/share/trajectory/trajectory_with_speed.csv &
 ros2 run xy_logger xy_logger &
 
 # Start recording rviz2
