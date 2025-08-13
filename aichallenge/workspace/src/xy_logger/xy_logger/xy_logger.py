@@ -13,7 +13,7 @@ timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
 # ファイル名をタイムスタンプ付きで生成
 OUT = os.path.join(OUT_DIR, f"xy_log_{timestamp}.csv")
 
-MAX_DATA_ROWS = 150  # ヘッダ行を除いた最大書き込み行数（データ行数）
+MAX_DATA_ROWS = 200  # ヘッダ行を除いた最大書き込み行数（データ行数）
 
 class XYLogger(Node):
     def __init__(self):
@@ -35,7 +35,7 @@ class XYLogger(Node):
             self.w.writerow(['stamp_sec','stamp_nsec','x','y','z','frame_id','child_frame_id'])
 
         # 1秒周期で最新データを1行だけ書く
-        self.timer = self.create_timer(1.0, self.tick)
+        self.timer = self.create_timer(1.6, self.tick)
 
         # どんな終わり方でも close する
         atexit.register(self._close)

@@ -32,6 +32,45 @@ from rclpy.time import Time
 from nav_msgs.msg import Odometry
 from std_msgs.msg import Float32
 
+# --- pedal/accel map helpers: paste below imports ---
+def _load_map_csv(path):
+    import pandas as pd, numpy as np
+    df = pd.read_csv(path, header=None)
+    # 先頭セルが非数、1行目/1列目が軸という前提
+    v_axis = pd.to_numeric(df.iloc[0, 1:], errors='coerce').to_numpy()   # 速度（列）
+    p_axis = pd.to_numeric(df.iloc[1:, 0], errors='coerce').to_numpy()   # ペダル（行）
+    grid   = pd.to_numeric(df.iloc[1:, 1:].stack(), errors='coerce').unstack().to_numpy(dtype=float)
+    return p_axis, v_axis, grid  # rows: pedal, cols: speed
+
+def _interp2(grid, x_axis, y_axis, x, y):
+    # 双一次補間（x=速度[m/s], y=ペダル[0..1]）
+    import numpy as np
+    x = float(np.clip(x, x_axis.min(), x_axis.max()))
+    y = float(np.clip(y, y_axis.min(), y_axis.max()))
+    i = int(np.clip(np.searchsorted(x_axis, x) - 1, 0, len(x_axis)-2))
+    j = int(np.clip(np.searchsorted(y_axis, y) - 1, 0, len(y_axis)-2))
+    x0,x1 = x_axis[i], x_axis[i+1]
+    y0,y1 = y_axis[j], y_axis[j+1]
+    q11 = grid[j  , i  ]
+    q21 = grid[j  , i+1]
+    q12 = grid[j+1, i  ]
+    q22 = grid[j+1, i+1]
+    tx = 0.0 if x1==x0 else (x-x0)/(x1-x0)
+    ty = 0.0 if y1==y0 else (y-y0)/(y1-y0)
+    return (1-tx)*(1-ty)*q11 + tx*(1-ty)*q21 + (1-tx)*ty*q12 + tx*ty*q22
+
+def _invert_map_for_pedal(ax_target, v, pedal_axis, speed_axis, grid, pedal_min=0.0, pedal_max=1.0):
+    # 単調性を仮定した1D二分探索：所望の加速度に合うペダル値を逆算
+    lo, hi = pedal_min, pedal_max
+    for _ in range(20):
+        mid = 0.5*(lo+hi)
+        ax_mid = _interp2(grid, speed_axis, pedal_axis, v, mid)
+        if ax_mid < ax_target:
+            lo = mid
+        else:
+            hi = mid
+    return 0.5*(lo+hi)
+
 
 def wrap_angle(angle: float) -> float:
     """Wrap to [-pi, pi]."""
@@ -50,7 +89,7 @@ def quat_to_yaw(qx: float, qy: float, qz: float, qw: float) -> float:
 @dataclass
 class Gains:
     ke: float = 1.0          # Stanley lateral gain
-    kpsi: float = 1.5        # Yaw error gain
+    kpsi: float = 1.6        # Yaw error gain
     eps_v: float = 0.1       # Avoid div by zero in Stanley term
 
 @dataclass
@@ -202,7 +241,7 @@ class TrajFollowerNode(Node):
         self.declare_parameter('Lmin', 0.8)
         self.declare_parameter('Lmax', 6.0)
         self.declare_parameter('max_steer_rate_degps', 400.0)
-        self.declare_parameter('ax_kp', 1.0)
+        self.declare_parameter('ax_kp', 1.5)
         self.declare_parameter('ax_ki', 0.2)
         self.declare_parameter('ax_kd', 0.0)
         self.declare_parameter('ax_i_min', -2.0)
@@ -210,6 +249,21 @@ class TrajFollowerNode(Node):
         self.declare_parameter('ax_min', -3.0)
         self.declare_parameter('ax_max', 2.0)
         self.declare_parameter('ctrl_hz', 50.0)
+        # 既存の declare_parameter の後に追記
+        self.declare_parameter('accel_map_csv', '/mnt/data/accel_map_optimized_v3.csv')
+        self.declare_parameter('brake_map_csv', '/mnt/data/brake_map_optimized_v2.csv')
+        self.declare_parameter('use_pedal_output', True)  # Trueでペダル出力、Falseでm/s^2出力
+
+        # パラメータ読み出しの後に追記
+        accel_map_path = self.get_parameter('accel_map_csv').get_parameter_value().string_value
+        brake_map_path = self.get_parameter('brake_map_csv').get_parameter_value().string_value
+        self.use_pedal_output = self.get_parameter('use_pedal_output').get_parameter_value().bool_value
+
+        # マップをロード
+        self.p_accel, self.v_accel, self.grid_accel = _load_map_csv(accel_map_path)
+        self.p_brake, self.v_brake, self.grid_brake = _load_map_csv(brake_map_path)
+        self.get_logger().info(f'Loaded accel_map: {accel_map_path}, brake_map: {brake_map_path}')
+
 
         # Load params
         traj_path = self.get_parameter('traj_csv').get_parameter_value().string_value
@@ -343,7 +397,21 @@ class TrajFollowerNode(Node):
 
         # publish
         m_steer = Float32(); m_steer.data = float(delta_cmd)
-        m_accel = Float32(); m_accel.data = float(ax_cmd)   # or self._ax_to_pedal(ax_cmd)
+        m_accel = Float32()
+        if self.use_pedal_output:
+            # ペダル出力（/cmd/accel の意味を「ペダル」に変更するか、トピック名も変えるなら起動引数で）
+            if ax_cmd >= 0.0:
+                pedal = _invert_map_for_pedal(ax_cmd, v, self.p_accel, self.v_accel, self.grid_accel,
+                                            pedal_min=float(self.p_accel.min()), pedal_max=float(self.p_accel.max()))
+                m_accel.data = float(pedal)        # 例：0..1 をアクセルに
+            else:
+                pedal = _invert_map_for_pedal(abs(ax_cmd), v, self.p_brake, self.v_brake, self.grid_brake,
+                                            pedal_min=float(self.p_brake.min()), pedal_max=float(self.p_brake.max()))
+                m_accel.data = float(-pedal)       # 例：負側をブレーキに割当（IFに合わせて別トピックでもOK）
+        else:
+            # これまで通り m/s^2 を出力
+            m_accel.data = float(ax_cmd)
+
         self.pub_steer.publish(m_steer)
         self.pub_accel.publish(m_accel)
 
