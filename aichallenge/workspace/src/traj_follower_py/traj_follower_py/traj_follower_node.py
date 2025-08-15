@@ -88,14 +88,14 @@ def quat_to_yaw(qx: float, qy: float, qz: float, qw: float) -> float:
 
 @dataclass
 class Gains:
-    ke: float = 1.0          # Stanley lateral gain
-    kpsi: float = 1.6        # Yaw error gain
+    ke: float = 1.5         # Stanley lateral gain
+    kpsi: float = 1.85        # Yaw error gain
     eps_v: float = 0.1       # Avoid div by zero in Stanley term
 
 @dataclass
 class Lookahead:
-    l0: float = 1.0          # base lookahead [m]
-    tau: float = 0.15        # seconds -> Ld = l0 + tau*v
+    l0: float = 0.9          # base lookahead [m]
+    tau: float = 0.3        # seconds -> Ld = l0 + tau*v
     Lmin: float = 0.8
     Lmax: float = 6.0
 
