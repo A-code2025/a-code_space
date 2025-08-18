@@ -1,77 +1,85 @@
 #!/usr/bin/env python3
-
-
-import rclpy, atexit, signal, os, csv
+import rclpy, atexit, signal, os, csv, math
 from rclpy.node import Node
 from nav_msgs.msg import Odometry
 from datetime import datetime
 
-# 保存先ディレクトリ
 OUT_DIR = "/output"
-# タイムスタンプ（例: 2025-08-10_162530）
 timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
-# ファイル名をタイムスタンプ付きで生成
 OUT = os.path.join(OUT_DIR, f"xy_log_{timestamp}.csv")
 
-MAX_DATA_ROWS = 200  # ヘッダ行を除いた最大書き込み行数（データ行数）
+# 添付のラインCSV（必要に応じてパラメータで差し替え可）
+DEFAULT_RACELINE_CSV = "/aichallenge/workspace/src/aichallenge_submit/simple_trajectory_generator/data/raceline_awsim_30km_from_garage.csv"
+
+MAX_DATA_ROWS = 200  # データ行上限（ヘッダ除く）
 
 class XYLogger(Node):
     def __init__(self):
         super().__init__('xy_logger')
 
-        # 受信: 最新だけ保持
         self.last_msg = None
         self.rows_written = 0
         self.closed = False
 
         self.sub = self.create_subscription(
-            Odometry, '/localization/kinematic_state', self.cb, 10
+            Odometry, '/localization/kinematic_state', self.cb, 20
         )
 
+        # raceline CSV をロード
+        self.raceline_csv = self.declare_parameter('raceline_csv', DEFAULT_RACELINE_CSV).value
+        self.raceline = self._load_raceline(self.raceline_csv)  # list[dict] or None
+
         os.makedirs(os.path.dirname(OUT), exist_ok=True)
-        self.f = open(OUT, 'a', newline='', buffering=1)  # 行バッファリング
+        self.f = open(OUT, 'a', newline='', buffering=1)
         self.w = csv.writer(self.f)
+
+        # ヘッダは7列のみ
         if self.f.tell() == 0:
-            self.w.writerow(['stamp_sec','stamp_nsec','x','y','z','frame_id','child_frame_id'])
+            self.w.writerow(['x','y','z','x_quat','y_quat','z_quat','w_quat'])
 
-        # 1秒周期で最新データを1行だけ書く
-        self.timer = self.create_timer(1.6, self.tick)
+        # 1秒ごとに書き込み
+        self.timer = self.create_timer(2.04, self.tick)
 
-        # どんな終わり方でも close する
+        # 終了時クリーンアップ
         atexit.register(self._close)
         rclpy.get_default_context().on_shutdown(self._close)
         signal.signal(signal.SIGTERM, lambda *_: rclpy.shutdown())
 
     def cb(self, msg: Odometry):
-        # 最新のメッセージだけ保持（書き込みはtickで1Hz）
         self.last_msg = msg
 
     def tick(self):
-        # 上限に達したら終了
         if self.rows_written >= MAX_DATA_ROWS:
             self.get_logger().info(f"Reached {MAX_DATA_ROWS} rows. Stopping.")
             self._close()
-            # ノードを停止
             try:
                 rclpy.shutdown()
             except Exception:
                 pass
             return
 
-        # まだデータ未受信ならスキップ
         if self.last_msg is None:
             return
 
         msg = self.last_msg
         p = msg.pose.pose.position
+        # 7列のベース: x, y, z は Odometry の位置
+        row = [f'{p.x:.6f}', f'{p.y:.6f}', f'{p.z:.6f}']
+
+        # quat は raceline があれば最近傍の行から、無ければ Odometry の姿勢を使用
+        if self.raceline is not None:
+            _, rl = self._nearest_on_raceline(p.x, p.y)
+            row += [
+                f'{rl["x_quat"]:.6f}', f'{rl["y_quat"]:.6f}',
+                f'{rl["z_quat"]:.6f}', f'{rl["w_quat"]:.6f}'
+            ]
+        else:
+            q = msg.pose.pose.orientation
+            row += [f'{q.x:.6f}', f'{q.y:.6f}', f'{q.z:.6f}', f'{q.w:.6f}']
+
         try:
-            self.w.writerow([
-                msg.header.stamp.sec,
-                msg.header.stamp.nanosec,
-                f'{p.x:.6f}', f'{p.y:.6f}', f'{p.z:.3f}',
-                msg.header.frame_id, msg.child_frame_id
-            ])
-            self.f.flush()  # 逐次フラッシュ（安全重視）
+            self.w.writerow(row)
+            self.f.flush()
             self.rows_written += 1
         except Exception as e:
             self.get_logger().error(f"Write failed: {e}")
@@ -80,6 +88,50 @@ class XYLogger(Node):
                 rclpy.shutdown()
             except Exception:
                 pass
+
+    def _load_raceline(self, path):
+        try:
+            if not os.path.exists(path):
+                self.get_logger().warn(f"raceline CSV not found: {path}")
+                return None
+            data = []
+            with open(path, newline='') as f:
+                r = csv.DictReader(f)
+                for i, row in enumerate(r):
+                    try:
+                        data.append({
+                            "x": float(row.get("x", 0.0)),
+                            "y": float(row.get("y", 0.0)),
+                            "z": float(row.get("z", 0.0)),
+                            "x_quat": float(row.get("x_quat", 0.0)),
+                            "y_quat": float(row.get("y_quat", 0.0)),
+                            "z_quat": float(row.get("z_quat", 0.0)),
+                            "w_quat": float(row.get("w_quat", 1.0)),
+                        })
+                    except Exception as ex:
+                        self.get_logger().warn(f"Skip bad row {i}: {ex}")
+            if not data:
+                self.get_logger().warn(f"raceline CSV empty: {path}")
+                return None
+            self.get_logger().info(f"Loaded raceline: {len(data)} points from {path}")
+            return data
+        except Exception as e:
+            self.get_logger().error(f"Failed to load raceline CSV: {e}")
+            return None
+
+    def _nearest_on_raceline(self, x, y):
+        best_i = 0
+        best_d2 = float('inf')
+        rl_best = None
+        for i, rl in enumerate(self.raceline):
+            dx = rl["x"] - x
+            dy = rl["y"] - y
+            d2 = dx*dx + dy*dy
+            if d2 < best_d2:
+                best_d2 = d2
+                best_i = i
+                rl_best = rl
+        return best_i, rl_best
 
     def _close(self):
         if self.closed:
@@ -111,3 +163,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

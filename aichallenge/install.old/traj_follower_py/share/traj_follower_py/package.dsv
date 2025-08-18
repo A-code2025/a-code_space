@@ -1,0 +1,9 @@
+source;share/traj_follower_py/hook/pythonpath.ps1
+source;share/traj_follower_py/hook/pythonpath.dsv
+source;share/traj_follower_py/hook/pythonpath.sh
+source;share/traj_follower_py/hook/ament_prefix_path.ps1
+source;share/traj_follower_py/hook/ament_prefix_path.dsv
+source;share/traj_follower_py/hook/ament_prefix_path.sh
+source;../../build/traj_follower_py/share/traj_follower_py/hook/pythonpath_develop.ps1
+source;../../build/traj_follower_py/share/traj_follower_py/hook/pythonpath_develop.dsv
+source;../../build/traj_follower_py/share/traj_follower_py/hook/pythonpath_develop.sh

@@ -1,0 +1,28 @@
+running develop
+running egg_info
+creating traj_follower_py.egg-info
+writing traj_follower_py.egg-info/PKG-INFO
+writing dependency_links to traj_follower_py.egg-info/dependency_links.txt
+writing entry points to traj_follower_py.egg-info/entry_points.txt
+writing requirements to traj_follower_py.egg-info/requires.txt
+writing top-level names to traj_follower_py.egg-info/top_level.txt
+writing manifest file 'traj_follower_py.egg-info/SOURCES.txt'
+reading manifest file 'traj_follower_py.egg-info/SOURCES.txt'
+writing manifest file 'traj_follower_py.egg-info/SOURCES.txt'
+running build_ext
+Creating /aichallenge/install/traj_follower_py/lib/python3.10/site-packages/traj-follower-py.egg-link (link to .)
+Installing traj_follower script to /aichallenge/install/traj_follower_py/lib/traj_follower_py
+
+Installed /aichallenge/build/traj_follower_py
+running symlink_data
+creating /aichallenge/install/traj_follower_py/share/ament_index
+creating /aichallenge/install/traj_follower_py/share/ament_index/resource_index
+creating /aichallenge/install/traj_follower_py/share/ament_index/resource_index/packages
+symbolically linking /aichallenge/build/traj_follower_py/resource/traj_follower_py -> /aichallenge/install/traj_follower_py/share/ament_index/resource_index/packages
+symbolically linking /aichallenge/build/traj_follower_py/package.xml -> /aichallenge/install/traj_follower_py/share/traj_follower_py
+creating /aichallenge/install/traj_follower_py/share/traj_follower_py/launch
+symbolically linking /aichallenge/build/traj_follower_py/launch/traj_follower.launch.py -> /aichallenge/install/traj_follower_py/share/traj_follower_py/launch
+creating /aichallenge/install/traj_follower_py/share/traj_follower_py/config
+symbolically linking /aichallenge/build/traj_follower_py/config/traj_follower_params.yaml -> /aichallenge/install/traj_follower_py/share/traj_follower_py/config
+creating /aichallenge/install/traj_follower_py/share/traj_follower_py/trajectory
+symbolically linking /aichallenge/build/traj_follower_py/trajectory/trajectory_with_speed.csv -> /aichallenge/install/traj_follower_py/share/traj_follower_py/trajectory

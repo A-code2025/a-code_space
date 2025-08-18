@@ -1,0 +1,21 @@
+traj_follower_node:
+  ros__parameters:
+    # Stanley
+    ke:   0.8     # (← 1.0から下げて横誤差への過敏さを抑える)
+    kpsi: 1.8     # (← 1.5から少し上げて向きの収束を強める)
+    eps_v: 0.1
+
+    # 縦方向 PID
+    ax_kp: 1.2
+    ax_ki: 0.05
+    ax_kd: 0.15   # (← 0.0→0.15。微分でヒョコつきを抑える)
+
+    # Lookahead（速度依存で効かせる）
+    l0:   2.5     # (← 2.0→2.5)
+    Lmin: 1.2     # (← 1.0→1.2)
+    Lmax: 8.0     # (← 5.0→8.0 に拡張：頭打ちを避ける)
+    tau:  0.5     # (← 0.75→0.5：高速で伸びすぎないようマイルドに)
+
+    wheelbase: 1.0
+    use_preview: true
+    preview_time: 0.5

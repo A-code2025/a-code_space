@@ -88,14 +88,14 @@ def quat_to_yaw(qx: float, qy: float, qz: float, qw: float) -> float:
 
 @dataclass
 class Gains:
-    ke: float = 1.5         # Stanley lateral gain
-    kpsi: float = 1.85        # Yaw error gain
+    ke: float = 1.0         # Stanley lateral gain
+    kpsi: float = 1.5        # Yaw error gain
     eps_v: float = 0.1       # Avoid div by zero in Stanley term
 
 @dataclass
 class Lookahead:
-    l0: float = 0.9          # base lookahead [m]
-    tau: float = 0.3        # seconds -> Ld = l0 + tau*v
+    l0: float = 1.0          # base lookahead [m]
+    tau: float = 0.15        # seconds -> Ld = l0 + tau*v
     Lmin: float = 0.8
     Lmax: float = 6.0
 
@@ -227,7 +227,7 @@ class TrajFollowerNode(Node):
         super().__init__('traj_follower')
 
         # Parameters
-        self.declare_parameter('traj_csv', '/mnt/data/trajectory_with_speed.csv')
+        self.declare_parameter('traj_csv', '/aichallenge/workspace/src/traj_follower_py/trajectory/trajectory_with_speed.csv')
         self.declare_parameter('wheelbase', 1.05)
         self.declare_parameter('steer_topic', '/cmd/steer')
         self.declare_parameter('accel_topic', '/cmd/accel')
@@ -250,8 +250,8 @@ class TrajFollowerNode(Node):
         self.declare_parameter('ax_max', 2.0)
         self.declare_parameter('ctrl_hz', 50.0)
         # 既存の declare_parameter の後に追記
-        self.declare_parameter('accel_map_csv', '/mnt/data/accel_map_optimized_v3.csv')
-        self.declare_parameter('brake_map_csv', '/mnt/data/brake_map_optimized_v2.csv')
+        self.declare_parameter('accel_map_csv', '/aichallenge/workspace/src/aichallenge_submit/aichallenge_submit_launch/data/accel_map.csv')
+        self.declare_parameter('brake_map_csv', '/aichallenge/workspace/src/aichallenge_submit/aichallenge_submit_launch/data/brake_map.csv')
         self.declare_parameter('use_pedal_output', True)  # Trueでペダル出力、Falseでm/s^2出力
 
         # パラメータ読み出しの後に追記

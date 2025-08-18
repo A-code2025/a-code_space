@@ -185,10 +185,7 @@ echo "$PID_UPDATER" >>"$PID_FILE"
 source /aichallenge/workspace/install/setup.bash
 ros2 run traj_follower_py traj_follower \
   --ros-args \
-  -p traj_csv:=/aichallenge/workspace/src/traj_follower_py/share/trajectory/trajectory_with_speed.csv \
-  -p accel_map_csv:=/aichallenge/workspace/src/aichallenge_submit/aichallenge_submit_launch/data/accel_map.csv \
-  -p brake_map_csv:=/aichallenge/workspace/src/aichallenge_submit/aichallenge_submit_launch/data/brake_map.csv \
-  -p use_pedal_output:=true &
+  --params-file /aichallenge/workspace/src/traj_follower_py/config/traj_follower_params.yaml &
 ros2 run xy_logger xy_logger &
 
 # Start recording rviz2
