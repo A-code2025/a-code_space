@@ -125,9 +125,14 @@
     </group>
   </group>
 
-  <!-- Pure Pursuit -->
   <let name="steering_tire_angle_gain_var" value="1.50" if="$(var simulation)"/>
   <let name="steering_tire_angle_gain_var" value="1.639" unless="$(var simulation)"/>
+  
+  <node pkg="traj_follower_cpp" exec="traj_follower_node" name="traj_follower_cpp" output="screen">
+    <param name="wheelbase" value="1.0"/>
+    <param name="l0" value="2.0"/>
+    <param name="tau" value="0.75"/>
+  </node>
 
   <node pkg="simple_pure_pursuit" exec="simple_pure_pursuit" name="simple_pure_pursuit_node" output="screen">
     <param name="use_external_target_vel" value="false"/>
