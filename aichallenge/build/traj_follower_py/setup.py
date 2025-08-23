@@ -1,1 +1,0 @@
-/aichallenge/workspace/src/traj_follower_py/setup.py
