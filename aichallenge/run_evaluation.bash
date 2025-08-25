@@ -215,6 +215,7 @@ cd "$OUTPUT_DIRECTORY" || exit
 # shellcheck disable=SC1091
 source /aichallenge/workspace/install/setup.bash
 #ros2 run traj_follower_cpp traj_follower_node &
+ros2 run xy_logger xy_logger &
 sudo ip link set multicast on lo
 sudo sysctl -w net.core.rmem_max=2147483647 >/dev/null
 

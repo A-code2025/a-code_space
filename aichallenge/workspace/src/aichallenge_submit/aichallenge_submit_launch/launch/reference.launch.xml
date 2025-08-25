@@ -119,14 +119,14 @@
 
       <!-- Customizable -->
       <node pkg="simple_trajectory_generator" exec="simple_trajectory_generator_node" name="simple_trajectory_generator" output="screen">
-            <param name="csv_path" value="$(find-pkg-share simple_trajectory_generator)/data/raceline_awsim_30km_from_garage_x3_straight_1of3.csv"/>
+            <param name="csv_path" value="$(find-pkg-share simple_trajectory_generator)/data/xy_log_2025-08-26_071058.csv"/>
             <param name="z" value="6.5"/>
       </node>
       
     </group>
   </group>
 
-  <let name="steering_tire_angle_gain_var" value="1.775" if="$(var simulation)"/>
+  <let name="steering_tire_angle_gain_var" value="1.776" if="$(var simulation)"/>
   <let name="steering_tire_angle_gain_var" value="1.639" unless="$(var simulation)"/>
   
   <!-- <node pkg="traj_follower_cpp" exec="traj_follower_node" name="traj_follower_cpp" output="screen">
