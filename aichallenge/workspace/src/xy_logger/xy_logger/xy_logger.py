@@ -38,7 +38,7 @@ class XYLogger(Node):
             self.w.writerow(['x','y','z','x_quat','y_quat','z_quat','w_quat'])
 
         # 0.5秒ごとに書き込み
-        self.timer = self.create_timer(3.0, self.tick)
+        self.timer = self.create_timer(1.0, self.tick)
 
         # 終了時クリーンアップ
         atexit.register(self._close)
