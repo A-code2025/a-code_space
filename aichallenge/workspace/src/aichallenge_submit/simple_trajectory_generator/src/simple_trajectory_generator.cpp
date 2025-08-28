@@ -21,6 +21,8 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <std_msgs/msg/string.hpp>
+#include <std_msgs/msg/float32_multi_array.hpp>
 
 using Trajectory = autoware_auto_planning_msgs::msg::Trajectory;
 using TrajectoryPoint = autoware_auto_planning_msgs::msg::TrajectoryPoint;
@@ -28,7 +30,7 @@ using TrajectoryPoint = autoware_auto_planning_msgs::msg::TrajectoryPoint;
 class CSVToTrajectory : public rclcpp::Node
 {
 public:
-  CSVToTrajectory() : Node("csv_to_trajectory_node")
+  CSVToTrajectory() : Node("csv_to_trajectory_node"), switched_to_second_path_(false)
   {
     const auto rb_qos = rclcpp::QoS(rclcpp::KeepLast(1)).durability_volatile().best_effort();
     pub_ = this->create_publisher<Trajectory>("trajectory", rb_qos);
@@ -36,21 +38,23 @@ public:
       std::bind(&CSVToTrajectory::on_parameter_event, this, std::placeholders::_1));
 
 
-    declare_parameter("csv_path", "");
+    declare_parameter<std::vector<std::string>>("csv_paths", std::vector<std::string>{});
     z_= declare_parameter<float>("z");
-    std::string csv_path = get_parameter("csv_path").as_string();
-    
-    if (csv_path.empty()) {
-      RCLCPP_ERROR(get_logger(), "CSV path is not specified");
+    auto csv_paths = get_parameter("csv_paths").as_string_array();
+    if (csv_paths.size() != 2) {
+      RCLCPP_ERROR(get_logger(), "csv_paths must contain exactly 2 paths.");
       return;
     }
-    
-    if (!loadCSVTrajectory(csv_path)) {
-      RCLCPP_ERROR(get_logger(), "Failed to load CSV file: %s", csv_path.c_str());
+    csv_paths_ = csv_paths;
+    current_csv_index_ = 0;
+    if (!loadCSVTrajectory(csv_paths_[current_csv_index_])) {
+      RCLCPP_ERROR(get_logger(), "Failed to load initial CSV file: %s", csv_paths_[current_csv_index_].c_str());
       return;
     }
-    
-    RCLCPP_INFO(get_logger(), "Loaded trajectory from CSV with %zu points", csv_trajectory_.points.size());
+    RCLCPP_INFO(get_logger(), "Loaded initial trajectory from: %s", csv_paths_[current_csv_index_].c_str());
+    sub_status_ = create_subscription<std_msgs::msg::Float32MultiArray>(
+      "/aichallenge/awsim/status", rclcpp::QoS{1}.best_effort(),
+      std::bind(&CSVToTrajectory::statusCallback, this, std::placeholders::_1));
 
     timer_ = this->create_wall_timer(
       std::chrono::seconds(1),
@@ -121,6 +125,36 @@ private:
     pub_->publish(csv_trajectory_);
     RCLCPP_INFO_THROTTLE(get_logger(),*get_clock(), 60000 /*ms*/, "Published trajectory with %zu points", csv_trajectory_.points.size());
   }
+  void statusCallback(const std_msgs::msg::Float32MultiArray::SharedPtr msg)
+  {
+    if (switched_to_second_path_) return;
+    if (!msg) return;
+    if (msg->data.size() < 4) return;
+    const int lap = static_cast<int>(msg->data[1]);
+    const int section = static_cast<int>(msg->data[3]);
+    switch (lap) {
+      case 1:
+        switch (section) {
+          case 7:
+            current_csv_index_ = 1;
+            if (loadCSVTrajectory(csv_paths_[current_csv_index_])) {
+              switched_to_second_path_ = true;
+              current_csv_path_ = csv_paths_[current_csv_index_];
+              RCLCPP_INFO(get_logger(), "Switched to second path: %s", current_csv_path_.c_str());
+            } else {
+              RCLCPP_ERROR(get_logger(), "Failed to load second CSV file: %s", csv_paths_[1].c_str());
+            }
+            break;
+          default:
+            break;
+        }
+        break;
+      default:
+        break;
+    }
+  }
+
+
 
   rcl_interfaces::msg::SetParametersResult on_parameter_event(
     const std::vector<rclcpp::Parameter> & parameters)
@@ -176,6 +210,10 @@ private:
   }
   
   rclcpp::Publisher<Trajectory>::SharedPtr pub_;
+  rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr sub_status_;
+  std::vector<std::string> csv_paths_;
+  int current_csv_index_ = 0;
+  bool switched_to_second_path_ = false;
   rclcpp::TimerBase::SharedPtr timer_;
   Trajectory csv_trajectory_;
   float z_;
