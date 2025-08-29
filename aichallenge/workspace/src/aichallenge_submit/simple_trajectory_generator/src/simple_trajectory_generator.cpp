@@ -135,7 +135,7 @@ private:
     switch (lap) {
       case 1:
         switch (section) {
-          case 7:
+          case 2:
             current_csv_index_ = 1;
             if (loadCSVTrajectory(csv_paths_[current_csv_index_])) {
               switched_to_second_path_ = true;
