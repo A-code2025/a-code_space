@@ -103,7 +103,6 @@
         <remap from="input/odom" to="/localization/kinematic_state"/>
         <remap from="input/twist" to="/localization/twist_estimator/twist_with_covariance"/>
         <remap from="output/accel" to="/localization/acceleration"/>
-        <!-- <arg name="input_control_cmd" value="/control/command/control_cmd_pp"/> -->
       </node>
     </group>
 
@@ -119,23 +118,16 @@
 
       <!-- Customizable -->
       <node pkg="simple_trajectory_generator" exec="simple_trajectory_generator_node" name="simple_trajectory_generator" output="screen">
-              <param name="csv_path" value="$(find-pkg-share simple_trajectory_generator)/data/raceline_optimized_edited.csv"/>
-              <param name="csv_paths" value="[$(find-pkg-share simple_trajectory_generator)/data/raceline_optimized_edited.csv, $(find-pkg-share simple_trajectory_generator)/data/raceline_optimized_2nd.csv]"/>
+            <param name="csv_path" value="$(find-pkg-share simple_trajectory_generator)/data/raceline_optimized_edited.csv"/>
             <param name="z" value="6.5"/>
       </node>
       
     </group>
   </group>
 
-  <let name="steering_tire_angle_gain_var" value="1.776" if="$(var simulation)"/>
+  <!-- Pure Pursuit -->
+  <let name="steering_tire_angle_gain_var" value="1.775" if="$(var simulation)"/>
   <let name="steering_tire_angle_gain_var" value="1.639" unless="$(var simulation)"/>
-  
-  <!-- <node pkg="traj_follower_cpp" exec="traj_follower_node" name="traj_follower_cpp" output="screen">
-    <param from="$(find-pkg-share aichallenge_submit_launch)/config/traj_follower_cpp.param.yaml"/>
-    <remap from="input/kinematics" to="/localization/kinematic_state"/>
-    <remap from="input/trajectory" to="/planning/scenario_planning/trajectory"/>
-    <remap from="output/control_cmd" to="/control/command/control_cmd"/>
-  </node> -->
 
   <node pkg="simple_pure_pursuit" exec="simple_pure_pursuit" name="simple_pure_pursuit_node" output="screen">
     <param name="use_external_target_vel" value="false"/>
