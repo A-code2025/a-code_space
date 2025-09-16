@@ -1,0 +1,611 @@
+[0.106s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'traj_follower_cpp']
+[0.106s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['traj_follower_cpp'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7240d9fbad10>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7240d9fba2f0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7240d9fba2f0>>, mixin_verb=('build',))
+[0.276s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.276s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.276s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.276s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.276s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.276s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.276s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/aichallenge'
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.277s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.277s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.277s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.277s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.285s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.285s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.285s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.285s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.285s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.285s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.285s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extensions ['ignore', 'ignore_ament_install']
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'ignore'
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'ignore_ament_install'
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extensions ['colcon_pkg']
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'colcon_pkg'
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extensions ['colcon_meta']
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'colcon_meta'
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extensions ['ros']
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'ros'
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extensions ['cmake', 'python']
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'cmake'
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'python'
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extensions ['python_setup_py']
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'python_setup_py'
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extensions ['ignore', 'ignore_ament_install']
+[0.286s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extension 'ignore'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extension 'ignore_ament_install'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extensions ['colcon_pkg']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extension 'colcon_pkg'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extensions ['colcon_meta']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extension 'colcon_meta'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extensions ['ros']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extension 'ros'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extensions ['cmake', 'python']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extension 'cmake'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extension 'python'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extensions ['python_setup_py']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM) by extension 'python_setup_py'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extensions ['ignore', 'ignore_ament_install']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extension 'ignore'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extension 'ignore_ament_install'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extensions ['colcon_pkg']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extension 'colcon_pkg'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extensions ['colcon_meta']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extension 'colcon_meta'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extensions ['ros']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extension 'ros'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extensions ['cmake', 'python']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extension 'cmake'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extension 'python'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extensions ['python_setup_py']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data) by extension 'python_setup_py'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extensions ['ignore', 'ignore_ament_install']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extension 'ignore'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extension 'ignore_ament_install'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extensions ['colcon_pkg']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extension 'colcon_pkg'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extensions ['colcon_meta']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extension 'colcon_meta'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extensions ['ros']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extension 'ros'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extensions ['cmake', 'python']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extension 'cmake'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extension 'python'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extensions ['python_setup_py']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Managed) by extension 'python_setup_py'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extensions ['ignore', 'ignore_ament_install']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extension 'ignore'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extension 'ignore_ament_install'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extensions ['colcon_pkg']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extension 'colcon_pkg'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extensions ['colcon_meta']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extension 'colcon_meta'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extensions ['ros']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extension 'ros'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extensions ['cmake', 'python']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extension 'cmake'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extension 'python'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extensions ['python_setup_py']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge) by extension 'python_setup_py'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extensions ['ignore', 'ignore_ament_install']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extension 'ignore'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extension 'ignore_ament_install'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extensions ['colcon_pkg']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extension 'colcon_pkg'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extensions ['colcon_meta']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extension 'colcon_meta'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extensions ['ros']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extension 'ros'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extensions ['cmake', 'python']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extension 'cmake'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extension 'python'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extensions ['python_setup_py']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc) by extension 'python_setup_py'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extensions ['ignore', 'ignore_ament_install']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extension 'ignore'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extension 'ignore_ament_install'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extensions ['colcon_pkg']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extension 'colcon_pkg'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extensions ['colcon_meta']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extension 'colcon_meta'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extensions ['ros']
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extension 'ros'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extensions ['cmake', 'python']
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extension 'cmake'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extension 'python'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extensions ['python_setup_py']
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono) by extension 'python_setup_py'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extensions ['ignore', 'ignore_ament_install']
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extension 'ignore'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extension 'ignore_ament_install'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extensions ['colcon_pkg']
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extension 'colcon_pkg'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extensions ['colcon_meta']
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extension 'colcon_meta'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extensions ['ros']
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extension 'ros'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extensions ['cmake', 'python']
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extension 'cmake'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extension 'python'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extensions ['python_setup_py']
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0) by extension 'python_setup_py'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extensions ['ignore', 'ignore_ament_install']
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extension 'ignore'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extension 'ignore_ament_install'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extensions ['colcon_pkg']
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extension 'colcon_pkg'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extensions ['colcon_meta']
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extension 'colcon_meta'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extensions ['ros']
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extension 'ros'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extensions ['cmake', 'python']
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extension 'cmake'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extension 'python'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extensions ['python_setup_py']
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/2.0/Browsers) by extension 'python_setup_py'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extensions ['ignore', 'ignore_ament_install']
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extension 'ignore'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extension 'ignore_ament_install'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extensions ['colcon_pkg']
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extension 'colcon_pkg'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extensions ['colcon_meta']
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extension 'colcon_meta'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extensions ['ros']
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extension 'ros'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extensions ['cmake', 'python']
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extension 'cmake'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extension 'python'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extensions ['python_setup_py']
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0) by extension 'python_setup_py'
+[0.291s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extensions ['ignore', 'ignore_ament_install']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extension 'ignore'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extension 'ignore_ament_install'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extensions ['colcon_pkg']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extension 'colcon_pkg'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extensions ['colcon_meta']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extension 'colcon_meta'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extensions ['ros']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extension 'ros'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extensions ['cmake', 'python']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extension 'cmake'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extension 'python'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extensions ['python_setup_py']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.0/Browsers) by extension 'python_setup_py'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extensions ['ignore', 'ignore_ament_install']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extension 'ignore'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extension 'ignore_ament_install'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extensions ['colcon_pkg']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extension 'colcon_pkg'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extensions ['colcon_meta']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extension 'colcon_meta'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extensions ['ros']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extension 'ros'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extensions ['cmake', 'python']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extension 'cmake'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extension 'python'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extensions ['python_setup_py']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5) by extension 'python_setup_py'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extensions ['ignore', 'ignore_ament_install']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extension 'ignore'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extension 'ignore_ament_install'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extensions ['colcon_pkg']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extension 'colcon_pkg'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extensions ['colcon_meta']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extension 'colcon_meta'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extensions ['ros']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extension 'ros'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extensions ['cmake', 'python']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extension 'cmake'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extension 'python'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extensions ['python_setup_py']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/4.5/Browsers) by extension 'python_setup_py'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extensions ['ignore', 'ignore_ament_install']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extension 'ignore'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extension 'ignore_ament_install'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extensions ['colcon_pkg']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extension 'colcon_pkg'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extensions ['colcon_meta']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extension 'colcon_meta'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extensions ['ros']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extension 'ros'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extensions ['cmake', 'python']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extension 'cmake'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extension 'python'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extensions ['python_setup_py']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/etc/mono/mconfig) by extension 'python_setup_py'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extensions ['ignore', 'ignore_ament_install']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extension 'ignore'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extension 'ignore_ament_install'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extensions ['colcon_pkg']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extension 'colcon_pkg'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extensions ['colcon_meta']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extension 'colcon_meta'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extensions ['ros']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extension 'ros'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extensions ['cmake', 'python']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extension 'cmake'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extension 'python'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extensions ['python_setup_py']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/MonoBleedingEdge/x86_64) by extension 'python_setup_py'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extensions ['ignore', 'ignore_ament_install']
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extension 'ignore'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extension 'ignore_ament_install'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extensions ['colcon_pkg']
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extension 'colcon_pkg'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extensions ['colcon_meta']
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extension 'colcon_meta'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extensions ['ros']
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extension 'ros'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extensions ['cmake', 'python']
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extension 'cmake'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extension 'python'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extensions ['python_setup_py']
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Plugins) by extension 'python_setup_py'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extensions ['ignore', 'ignore_ament_install']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extension 'ignore'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extension 'ignore_ament_install'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extensions ['colcon_pkg']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extension 'colcon_pkg'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extensions ['colcon_meta']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extension 'colcon_meta'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extensions ['ros']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extension 'ros'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extensions ['cmake', 'python']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extension 'cmake'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extension 'python'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extensions ['python_setup_py']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/AWSIM/AWSIM_Data/Resources) by extension 'python_setup_py'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extensions ['ignore', 'ignore_ament_install']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extension 'ignore'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extension 'ignore_ament_install'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extensions ['colcon_pkg']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extension 'colcon_pkg'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extensions ['colcon_meta']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extension 'colcon_meta'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extensions ['ros']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extension 'ros'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extensions ['cmake', 'python']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extension 'cmake'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extension 'python'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extensions ['python_setup_py']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(workspace) by extension 'python_setup_py'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/build) by extensions ['ignore', 'ignore_ament_install']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/build) by extension 'ignore'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/build) ignored
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/install) by extensions ['ignore', 'ignore_ament_install']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/install) by extension 'ignore'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/install) ignored
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/log) by extensions ['ignore', 'ignore_ament_install']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/log) by extension 'ignore'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/log) ignored
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extensions ['ignore', 'ignore_ament_install']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extension 'ignore'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extension 'ignore_ament_install'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extensions ['colcon_pkg']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extension 'colcon_pkg'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extensions ['colcon_meta']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extension 'colcon_meta'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extensions ['ros']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extension 'ros'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extensions ['cmake', 'python']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extension 'cmake'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extension 'python'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extensions ['python_setup_py']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src) by extension 'python_setup_py'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extensions ['ignore', 'ignore_ament_install']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extension 'ignore'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extension 'ignore_ament_install'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extensions ['colcon_pkg']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extension 'colcon_pkg'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extensions ['colcon_meta']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extension 'colcon_meta'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extensions ['ros']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extension 'ros'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extensions ['cmake', 'python']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extension 'cmake'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extension 'python'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extensions ['python_setup_py']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit) by extension 'python_setup_py'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/aichallenge_submit_launch) by extensions ['ignore', 'ignore_ament_install']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/aichallenge_submit_launch) by extension 'ignore'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/aichallenge_submit_launch) by extension 'ignore_ament_install'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/aichallenge_submit_launch) by extensions ['colcon_pkg']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/aichallenge_submit_launch) by extension 'colcon_pkg'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/aichallenge_submit_launch) by extensions ['colcon_meta']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/aichallenge_submit_launch) by extension 'colcon_meta'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/aichallenge_submit_launch) by extensions ['ros']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/aichallenge_submit_launch) by extension 'ros'
+[0.301s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_submit/aichallenge_submit_launch' with type 'ros.ament_cmake' and name 'aichallenge_submit_launch'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/goal_pose_setter) by extensions ['ignore', 'ignore_ament_install']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/goal_pose_setter) by extension 'ignore'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/goal_pose_setter) by extension 'ignore_ament_install'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/goal_pose_setter) by extensions ['colcon_pkg']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/goal_pose_setter) by extension 'colcon_pkg'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/goal_pose_setter) by extensions ['colcon_meta']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/goal_pose_setter) by extension 'colcon_meta'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/goal_pose_setter) by extensions ['ros']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/goal_pose_setter) by extension 'ros'
+[0.302s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_submit/goal_pose_setter' with type 'ros.ament_cmake' and name 'goal_pose_setter'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/gyro_odometer) by extensions ['ignore', 'ignore_ament_install']
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/gyro_odometer) by extension 'ignore'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/gyro_odometer) by extension 'ignore_ament_install'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/gyro_odometer) by extensions ['colcon_pkg']
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/gyro_odometer) by extension 'colcon_pkg'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/gyro_odometer) by extensions ['colcon_meta']
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/gyro_odometer) by extension 'colcon_meta'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/gyro_odometer) by extensions ['ros']
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/gyro_odometer) by extension 'ros'
+[0.303s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_submit/gyro_odometer' with type 'ros.ament_cmake' and name 'gyro_odometer'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_corrector) by extensions ['ignore', 'ignore_ament_install']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_corrector) by extension 'ignore'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_corrector) by extension 'ignore_ament_install'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_corrector) by extensions ['colcon_pkg']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_corrector) by extension 'colcon_pkg'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_corrector) by extensions ['colcon_meta']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_corrector) by extension 'colcon_meta'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_corrector) by extensions ['ros']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_corrector) by extension 'ros'
+[0.304s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_submit/imu_corrector' with type 'ros.ament_cmake' and name 'imu_corrector'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_gnss_poser) by extensions ['ignore', 'ignore_ament_install']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_gnss_poser) by extension 'ignore'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_gnss_poser) by extension 'ignore_ament_install'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_gnss_poser) by extensions ['colcon_pkg']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_gnss_poser) by extension 'colcon_pkg'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_gnss_poser) by extensions ['colcon_meta']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_gnss_poser) by extension 'colcon_meta'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_gnss_poser) by extensions ['ros']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/imu_gnss_poser) by extension 'ros'
+[0.311s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_submit/imu_gnss_poser' with type 'ros.ament_cmake' and name 'imu_gnss_poser'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/path_to_trajectory) by extensions ['ignore', 'ignore_ament_install']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/path_to_trajectory) by extension 'ignore'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/path_to_trajectory) by extension 'ignore_ament_install'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/path_to_trajectory) by extensions ['colcon_pkg']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/path_to_trajectory) by extension 'colcon_pkg'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/path_to_trajectory) by extensions ['colcon_meta']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/path_to_trajectory) by extension 'colcon_meta'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/path_to_trajectory) by extensions ['ros']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/path_to_trajectory) by extension 'ros'
+[0.312s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_submit/path_to_trajectory' with type 'ros.ament_cmake' and name 'path_to_trajectory'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_description) by extensions ['ignore', 'ignore_ament_install']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_description) by extension 'ignore'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_description) by extension 'ignore_ament_install'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_description) by extensions ['colcon_pkg']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_description) by extension 'colcon_pkg'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_description) by extensions ['colcon_meta']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_description) by extension 'colcon_meta'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_description) by extensions ['ros']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_description) by extension 'ros'
+[0.313s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_submit/racing_kart_description' with type 'ros.ament_cmake' and name 'racing_kart_description'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_gnss_poser) by extensions ['ignore', 'ignore_ament_install']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_gnss_poser) by extension 'ignore'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_gnss_poser) by extension 'ignore_ament_install'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_gnss_poser) by extensions ['colcon_pkg']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_gnss_poser) by extension 'colcon_pkg'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_gnss_poser) by extensions ['colcon_meta']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_gnss_poser) by extension 'colcon_meta'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_gnss_poser) by extensions ['ros']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_gnss_poser) by extension 'ros'
+[0.314s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_submit/racing_kart_gnss_poser' with type 'ros.ament_cmake' and name 'racing_kart_gnss_poser'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_sensor_kit_description) by extensions ['ignore', 'ignore_ament_install']
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_sensor_kit_description) by extension 'ignore'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_sensor_kit_description) by extension 'ignore_ament_install'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_sensor_kit_description) by extensions ['colcon_pkg']
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_sensor_kit_description) by extension 'colcon_pkg'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_sensor_kit_description) by extensions ['colcon_meta']
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_sensor_kit_description) by extension 'colcon_meta'
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_sensor_kit_description) by extensions ['ros']
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/racing_kart_sensor_kit_description) by extension 'ros'
+[0.315s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_submit/racing_kart_sensor_kit_description' with type 'ros.ament_cmake' and name 'racing_kart_sensor_kit_description'
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_pure_pursuit) by extensions ['ignore', 'ignore_ament_install']
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_pure_pursuit) by extension 'ignore'
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_pure_pursuit) by extension 'ignore_ament_install'
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_pure_pursuit) by extensions ['colcon_pkg']
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_pure_pursuit) by extension 'colcon_pkg'
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_pure_pursuit) by extensions ['colcon_meta']
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_pure_pursuit) by extension 'colcon_meta'
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_pure_pursuit) by extensions ['ros']
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_pure_pursuit) by extension 'ros'
+[0.316s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_submit/simple_pure_pursuit' with type 'ros.ament_cmake' and name 'simple_pure_pursuit'
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_trajectory_generator) by extensions ['ignore', 'ignore_ament_install']
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_trajectory_generator) by extension 'ignore'
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_trajectory_generator) by extension 'ignore_ament_install'
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_trajectory_generator) by extensions ['colcon_pkg']
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_trajectory_generator) by extension 'colcon_pkg'
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_trajectory_generator) by extensions ['colcon_meta']
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_trajectory_generator) by extension 'colcon_meta'
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_trajectory_generator) by extensions ['ros']
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_submit/simple_trajectory_generator) by extension 'ros'
+[0.317s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_submit/simple_trajectory_generator' with type 'ros.ament_cmake' and name 'simple_trajectory_generator'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extensions ['ignore', 'ignore_ament_install']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extension 'ignore'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extension 'ignore_ament_install'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extensions ['colcon_pkg']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extension 'colcon_pkg'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extensions ['colcon_meta']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extension 'colcon_meta'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extensions ['ros']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extension 'ros'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extensions ['cmake', 'python']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extension 'cmake'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extension 'python'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extensions ['python_setup_py']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system) by extension 'python_setup_py'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_awsim_adapter) by extensions ['ignore', 'ignore_ament_install']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_awsim_adapter) by extension 'ignore'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_awsim_adapter) by extension 'ignore_ament_install'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_awsim_adapter) by extensions ['colcon_pkg']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_awsim_adapter) by extension 'colcon_pkg'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_awsim_adapter) by extensions ['colcon_meta']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_awsim_adapter) by extension 'colcon_meta'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_awsim_adapter) by extensions ['ros']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_awsim_adapter) by extension 'ros'
+[0.318s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_system/aichallenge_awsim_adapter' with type 'ros.ament_cmake' and name 'aichallenge_awsim_adapter'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_system_launch) by extensions ['ignore', 'ignore_ament_install']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_system_launch) by extension 'ignore'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_system_launch) by extension 'ignore_ament_install'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_system_launch) by extensions ['colcon_pkg']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_system_launch) by extension 'colcon_pkg'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_system_launch) by extensions ['colcon_meta']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_system_launch) by extension 'colcon_meta'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_system_launch) by extensions ['ros']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/aichallenge_system_launch) by extension 'ros'
+[0.319s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_system/aichallenge_system_launch' with type 'ros.ament_cmake' and name 'aichallenge_system_launch'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/autoware_overlay_rviz_plugin) by extensions ['ignore', 'ignore_ament_install']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/autoware_overlay_rviz_plugin) by extension 'ignore'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/autoware_overlay_rviz_plugin) by extension 'ignore_ament_install'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/autoware_overlay_rviz_plugin) by extensions ['colcon_pkg']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/autoware_overlay_rviz_plugin) by extension 'colcon_pkg'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/autoware_overlay_rviz_plugin) by extensions ['colcon_meta']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/autoware_overlay_rviz_plugin) by extension 'colcon_meta'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/autoware_overlay_rviz_plugin) by extensions ['ros']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/autoware_overlay_rviz_plugin) by extension 'ros'
+[0.320s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/aichallenge_system/autoware_overlay_rviz_plugin' with type 'ros.ament_cmake' and name 'autoware_overlay_rviz_plugin'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extensions ['ignore', 'ignore_ament_install']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extension 'ignore'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extension 'ignore_ament_install'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extensions ['colcon_pkg']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extension 'colcon_pkg'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extensions ['colcon_meta']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extension 'colcon_meta'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extensions ['ros']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extension 'ros'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extensions ['cmake', 'python']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extension 'cmake'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extension 'python'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extensions ['python_setup_py']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/aichallenge_system/script) by extension 'python_setup_py'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/build) by extensions ['ignore', 'ignore_ament_install']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/build) by extension 'ignore'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/build) ignored
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/install) by extensions ['ignore', 'ignore_ament_install']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/install) by extension 'ignore'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/install) ignored
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/log) by extensions ['ignore', 'ignore_ament_install']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/log) by extension 'ignore'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/log) ignored
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/traj_follower_cpp) by extensions ['ignore', 'ignore_ament_install']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/traj_follower_cpp) by extension 'ignore'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/traj_follower_cpp) by extension 'ignore_ament_install'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/traj_follower_cpp) by extensions ['colcon_pkg']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/traj_follower_cpp) by extension 'colcon_pkg'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/traj_follower_cpp) by extensions ['colcon_meta']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/traj_follower_cpp) by extension 'colcon_meta'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/traj_follower_cpp) by extensions ['ros']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(workspace/src/traj_follower_cpp) by extension 'ros'
+[0.322s] DEBUG:colcon.colcon_core.package_identification:Package 'workspace/src/traj_follower_cpp' with type 'ros.ament_cmake' and name 'traj_follower_cpp'
+[0.322s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.322s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.322s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.322s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.322s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'aichallenge_awsim_adapter' in 'workspace/src/aichallenge_system/aichallenge_awsim_adapter'
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'autoware_overlay_rviz_plugin' in 'workspace/src/aichallenge_system/autoware_overlay_rviz_plugin'
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'goal_pose_setter' in 'workspace/src/aichallenge_submit/goal_pose_setter'
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'gyro_odometer' in 'workspace/src/aichallenge_submit/gyro_odometer'
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'imu_corrector' in 'workspace/src/aichallenge_submit/imu_corrector'
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'imu_gnss_poser' in 'workspace/src/aichallenge_submit/imu_gnss_poser'
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'path_to_trajectory' in 'workspace/src/aichallenge_submit/path_to_trajectory'
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'racing_kart_description' in 'workspace/src/aichallenge_submit/racing_kart_description'
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'racing_kart_gnss_poser' in 'workspace/src/aichallenge_submit/racing_kart_gnss_poser'
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'racing_kart_sensor_kit_description' in 'workspace/src/aichallenge_submit/racing_kart_sensor_kit_description'
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'simple_pure_pursuit' in 'workspace/src/aichallenge_submit/simple_pure_pursuit'
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'simple_trajectory_generator' in 'workspace/src/aichallenge_submit/simple_trajectory_generator'
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'aichallenge_submit_launch' in 'workspace/src/aichallenge_submit/aichallenge_submit_launch'
+[0.344s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'aichallenge_system_launch' in 'workspace/src/aichallenge_system/aichallenge_system_launch'
+[0.344s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.344s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.360s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 219 installed packages in /autoware/install
+[0.362s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 262 installed packages in /opt/ros/humble
+[0.363s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.406s] Level 5:colcon.colcon_core.verb:set package 'traj_follower_cpp' build argument 'cmake_args' from command line to 'None'
+[0.406s] Level 5:colcon.colcon_core.verb:set package 'traj_follower_cpp' build argument 'cmake_target' from command line to 'None'
+[0.406s] Level 5:colcon.colcon_core.verb:set package 'traj_follower_cpp' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.406s] Level 5:colcon.colcon_core.verb:set package 'traj_follower_cpp' build argument 'cmake_clean_cache' from command line to 'False'
+[0.406s] Level 5:colcon.colcon_core.verb:set package 'traj_follower_cpp' build argument 'cmake_clean_first' from command line to 'False'
+[0.406s] Level 5:colcon.colcon_core.verb:set package 'traj_follower_cpp' build argument 'cmake_force_configure' from command line to 'False'
+[0.406s] Level 5:colcon.colcon_core.verb:set package 'traj_follower_cpp' build argument 'ament_cmake_args' from command line to 'None'
+[0.406s] Level 5:colcon.colcon_core.verb:set package 'traj_follower_cpp' build argument 'catkin_cmake_args' from command line to 'None'
+[0.406s] Level 5:colcon.colcon_core.verb:set package 'traj_follower_cpp' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.406s] DEBUG:colcon.colcon_core.verb:Building package 'traj_follower_cpp' with the following arguments: {'ament_cmake_args': None, 'build_base': '/aichallenge/build/traj_follower_cpp', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/aichallenge/install/traj_follower_cpp', 'merge_install': False, 'path': '/aichallenge/workspace/src/traj_follower_cpp', 'symlink_install': False, 'test_result_base': None}
+[0.406s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.407s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.407s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/aichallenge/workspace/src/traj_follower_cpp' with build type 'ament_cmake'
+[0.407s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/aichallenge/workspace/src/traj_follower_cpp'
+[0.410s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.410s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.410s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.450s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/aichallenge/build/traj_follower_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/autoware/install/simulator_compatibility_test:/autoware/install/ad_api_visualizers:/opt/ros/humble PS1=\[\e]0;(AIC_DEV) \u@\h: \w\a\](AIC_DEV) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ /usr/bin/cmake /aichallenge/workspace/src/traj_follower_cpp -DCMAKE_INSTALL_PREFIX=/aichallenge/install/traj_follower_cpp
+[5.021s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/aichallenge/build/traj_follower_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/autoware/install/simulator_compatibility_test:/autoware/install/ad_api_visualizers:/opt/ros/humble PS1=\[\e]0;(AIC_DEV) \u@\h: \w\a\](AIC_DEV) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ /usr/bin/cmake /aichallenge/workspace/src/traj_follower_cpp -DCMAKE_INSTALL_PREFIX=/aichallenge/install/traj_follower_cpp
+[5.023s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/aichallenge/build/traj_follower_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/autoware/install/simulator_compatibility_test:/autoware/install/ad_api_visualizers:/opt/ros/humble PS1=\[\e]0;(AIC_DEV) \u@\h: \w\a\](AIC_DEV) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ /usr/bin/cmake --build /aichallenge/build/traj_follower_cpp -- -j8 -l8
+[14.299s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/aichallenge/build/traj_follower_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/autoware/install/simulator_compatibility_test:/autoware/install/ad_api_visualizers:/opt/ros/humble PS1=\[\e]0;(AIC_DEV) \u@\h: \w\a\](AIC_DEV) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ /usr/bin/cmake --build /aichallenge/build/traj_follower_cpp -- -j8 -l8
+[14.335s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/aichallenge/build/traj_follower_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/autoware/install/simulator_compatibility_test:/autoware/install/ad_api_visualizers:/opt/ros/humble PS1=\[\e]0;(AIC_DEV) \u@\h: \w\a\](AIC_DEV) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ /usr/bin/cmake --install /aichallenge/build/traj_follower_cpp
+[14.379s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(traj_follower_cpp)
+[14.380s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/aichallenge/build/traj_follower_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/autoware/install/simulator_compatibility_test:/autoware/install/ad_api_visualizers:/opt/ros/humble PS1=\[\e]0;(AIC_DEV) \u@\h: \w\a\](AIC_DEV) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ /usr/bin/cmake --install /aichallenge/build/traj_follower_cpp
+[14.384s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp' for CMake module files
+[14.385s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp' for CMake config files
+[14.385s] Level 1:colcon.colcon_core.shell:create_environment_hook('traj_follower_cpp', 'cmake_prefix_path')
+[14.385s] INFO:colcon.colcon_core.shell:Creating environment hook '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/hook/cmake_prefix_path.ps1'
+[14.386s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/hook/cmake_prefix_path.dsv'
+[14.387s] INFO:colcon.colcon_core.shell:Creating environment hook '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/hook/cmake_prefix_path.sh'
+[14.388s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp/lib'
+[14.388s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp/bin'
+[14.388s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp/lib/pkgconfig/traj_follower_cpp.pc'
+[14.389s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp/lib/python3.10/site-packages'
+[14.389s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp/bin'
+[14.389s] INFO:colcon.colcon_core.shell:Creating package script '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/package.ps1'
+[14.390s] INFO:colcon.colcon_core.shell:Creating package descriptor '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/package.dsv'
+[14.391s] INFO:colcon.colcon_core.shell:Creating package script '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/package.sh'
+[14.392s] INFO:colcon.colcon_core.shell:Creating package script '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/package.bash'
+[14.393s] INFO:colcon.colcon_core.shell:Creating package script '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/package.zsh'
+[14.394s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/aichallenge/install/traj_follower_cpp/share/colcon-core/packages/traj_follower_cpp)
+[14.395s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(traj_follower_cpp)
+[14.395s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp' for CMake module files
+[14.396s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp' for CMake config files
+[14.396s] Level 1:colcon.colcon_core.shell:create_environment_hook('traj_follower_cpp', 'cmake_prefix_path')
+[14.396s] INFO:colcon.colcon_core.shell:Creating environment hook '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/hook/cmake_prefix_path.ps1'
+[14.397s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/hook/cmake_prefix_path.dsv'
+[14.397s] INFO:colcon.colcon_core.shell:Creating environment hook '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/hook/cmake_prefix_path.sh'
+[14.398s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp/lib'
+[14.398s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp/bin'
+[14.398s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp/lib/pkgconfig/traj_follower_cpp.pc'
+[14.399s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp/lib/python3.10/site-packages'
+[14.399s] Level 1:colcon.colcon_core.environment:checking '/aichallenge/install/traj_follower_cpp/bin'
+[14.399s] INFO:colcon.colcon_core.shell:Creating package script '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/package.ps1'
+[14.400s] INFO:colcon.colcon_core.shell:Creating package descriptor '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/package.dsv'
+[14.400s] INFO:colcon.colcon_core.shell:Creating package script '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/package.sh'
+[14.401s] INFO:colcon.colcon_core.shell:Creating package script '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/package.bash'
+[14.401s] INFO:colcon.colcon_core.shell:Creating package script '/aichallenge/install/traj_follower_cpp/share/traj_follower_cpp/package.zsh'
+[14.402s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/aichallenge/install/traj_follower_cpp/share/colcon-core/packages/traj_follower_cpp)
+[14.402s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[14.403s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[14.403s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[14.403s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[14.418s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[14.418s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[14.418s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[14.418s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[14.422s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.Spawn.ExecFailed: /usr/bin/dbus-launch terminated abnormally without any error message
+[14.423s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[14.424s] INFO:colcon.colcon_core.shell:Creating prefix script '/aichallenge/install/local_setup.ps1'
+[14.425s] INFO:colcon.colcon_core.shell:Creating prefix util module '/aichallenge/install/_local_setup_util_ps1.py'
+[14.428s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/aichallenge/install/setup.ps1'
+[14.448s] INFO:colcon.colcon_core.shell:Creating prefix script '/aichallenge/install/local_setup.sh'
+[14.448s] INFO:colcon.colcon_core.shell:Creating prefix util module '/aichallenge/install/_local_setup_util_sh.py'
+[14.449s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/aichallenge/install/setup.sh'
+[14.467s] INFO:colcon.colcon_core.shell:Creating prefix script '/aichallenge/install/local_setup.bash'
+[14.468s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/aichallenge/install/setup.bash'
+[14.480s] INFO:colcon.colcon_core.shell:Creating prefix script '/aichallenge/install/local_setup.zsh'
+[14.481s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/aichallenge/install/setup.zsh'

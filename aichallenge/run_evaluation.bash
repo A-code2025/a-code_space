@@ -77,8 +77,29 @@ cleanup() {
     # Stop recording rosbag
     echo "Stop rosbag"
     if [[ -n $PID_ROSBAG ]] && kill -0 "$PID_ROSBAG" 2>/dev/null; then
-        graceful_shutdown "$PID_ROSBAG" 15
+        # Try to stop rosbag gracefully first
+        echo "Attempting graceful rosbag shutdown..."
+        kill -TERM "$PID_ROSBAG"
+
+        # Wait for rosbag to finish writing (up to 10 seconds)
+        local count=0
+        while kill -0 "$PID_ROSBAG" 2>/dev/null && [ $count -lt 100 ]; do
+            sleep 0.1
+            ((count++))
+        done
+
+        # If still running, force kill
+        if kill -0 "$PID_ROSBAG" 2>/dev/null; then
+            echo "Rosbag did not terminate gracefully, forcing kill"
+            kill -9 "$PID_ROSBAG"
+            sleep 0.5
+        fi
     fi
+
+    # Additional cleanup for any remaining rosbag processes
+    echo "Cleaning up any remaining rosbag processes..."
+    pkill -f "ros2 bag record" 2>/dev/null || true
+    sleep 1
 
     # shutdown ROS2 nodes
     echo "Shutting down ROS2 nodes gracefully..."
@@ -87,29 +108,41 @@ cleanup() {
         ros2 lifecycle set "$node" shutdown 2>/dev/null || true
         ros2 node kill "$node" 2>/dev/null || true
     done
-    sleep 1
 
     # Stop Autoware
     echo "Stop Autoware"
     if [[ -n $PID_AUTOWARE ]] && kill -0 "$PID_AUTOWARE" 2>/dev/null; then
-        graceful_shutdown "$PID_AUTOWARE" 20
+        graceful_shutdown "$PID_AUTOWARE" 3
     fi
 
     # Stop AWSIM
     echo "Stop AWSIM"
     if [[ -n $PID_AWSIM ]] && kill -0 "$PID_AWSIM" 2>/dev/null; then
-        graceful_shutdown "$PID_AWSIM" 10
+        graceful_shutdown "$PID_AWSIM" 3
     fi
 
     # Compress rosbag
     echo "Compress rosbag"
     if [ -d "rosbag2_autoware" ]; then
-        # Postprocess result
-        echo "Postprocess result"
-        python3 /aichallenge/workspace/src/aichallenge_system/script/motion_analytics.py --input rosbag2_autoware --output .
-        sleep 3
-        tar -czf rosbag2_autoware.tar.gz rosbag2_autoware
-        rm -rf rosbag2_autoware
+        # Wait a bit more to ensure rosbag files are fully written
+        echo "Waiting for rosbag files to be fully written..."
+        sleep 2
+
+        # Check if rosbag directory has content and is not being actively written
+        if [ -f "rosbag2_autoware/metadata.yaml" ] && [ ! -f "rosbag2_autoware/metadata.yaml.tmp" ]; then
+            # Postprocess result
+            echo "Postprocess result"
+            python3 /aichallenge/workspace/src/aichallenge_system/script/motion_analytics.py --input rosbag2_autoware --output .
+            tar -czf rosbag2_autoware.tar.gz rosbag2_autoware
+            rm -rf rosbag2_autoware
+        else
+            echo "Warning: rosbag2_autoware directory appears to be incomplete or still being written"
+            # Try to compress anyway, but with a warning
+            tar -czf rosbag2_autoware.tar.gz rosbag2_autoware 2>/dev/null || echo "Failed to compress rosbag"
+            rm -rf rosbag2_autoware
+        fi
+    else
+        echo "Warning: rosbag2_autoware directory not found"
     fi
 
     # check for remaining processes
@@ -118,7 +151,7 @@ cleanup() {
         while read -r pid; do
             if kill -0 "$pid" 2>/dev/null; then
                 echo "Attempting graceful shutdown of remaining PID $pid"
-                graceful_shutdown "$pid" 30
+                graceful_shutdown "$pid" 3
             fi
         done <"$PID_FILE"
         rm "$PID_FILE"
@@ -129,6 +162,46 @@ cleanup() {
     ros2 daemon stop
     exit 0
 }
+
+move_window() {
+    echo "Move window"
+
+    local has_gpu has_awsim has_rviz
+    has_gpu=$(command -v nvidia-smi >/dev/null && echo 1 || echo 0)
+
+    # Add timeout to prevent infinite hanging
+    local timeout=60 # 60 seconds timeout
+    local elapsed=0
+
+    while [ $elapsed -lt $timeout ]; do
+        has_awsim=$(wmctrl -l | grep -q "AWSIM" && echo 1 || echo 0)
+        has_rviz=$(wmctrl -l | grep -q "RViz" && echo 1 || echo 0)
+
+        if [ "$has_rviz" -eq 1 ] && { [ "$has_awsim" -eq 1 ] || [ "$has_gpu" -eq 0 ]; }; then
+            break
+        fi
+        sleep 1
+        ((elapsed++))
+        echo "Move window: $elapsed seconds elapsed"
+    done
+
+    if [ $elapsed -ge $timeout ]; then
+        echo "WARNING: Timeout waiting for AWSIM/RViz windows after ${timeout} seconds"
+        echo "AWSIM window found: $has_awsim"
+        echo "RViz window found: $has_rviz"
+        echo "GPU available: $has_gpu"
+        echo "Continuing without window positioning..."
+        return 1
+    fi
+
+    echo "AWSIM and RViz windows found"
+    # Move windows
+    wmctrl -a "RViz" && wmctrl -r "RViz" -e 0,0,0,1920,1043
+    sleep 1
+    wmctrl -a "AWSIM" && wmctrl -r "AWSIM" -e 0,0,0,900,1043
+    sleep 2
+}
+
 # Trap Ctrl+C (SIGINT) and normal termination (EXIT)
 trap cleanup SIGINT SIGTERM EXIT
 
@@ -181,26 +254,27 @@ sleep 3
 PID_UPDATER=$!
 echo "$PID_UPDATER" >>"$PID_FILE"
 
-# Start recording rviz2
-echo "Start screen capture"
-until (ros2 service type /debug/service/capture_screen >/dev/null); do
-    sleep 5
-done
-
-# Move windows
-wmctrl -a "RViz" && wmctrl -r "RViz" -e 0,0,0,1920,1043
-wmctrl -a "AWSIM" && wmctrl -r "AWSIM" -e 0,0,0,900,1043
-
+move_window
+bash /aichallenge/publish.bash check
+move_window
 bash /aichallenge/publish.bash all
+bash /aichallenge/publish.bash screen
 
 # Start recording rosbag with nohup
 echo "Start rosbag"
-nohup ros2 bag record -a -o rosbag2_autoware >/dev/null 2>&1 &
+nohup /aichallenge/record_rosbag.bash >/dev/null 2>&1 &
 PID_ROSBAG=$!
 echo "ROS Bag PID: $PID_ROSBAG"
 echo "$PID_ROSBAG" >>"$PID_FILE"
 # recursively get child processes
 get_child_pids "$PID_ROSBAG"
+# Wait a moment for rosbag to initialize and verify it's running
+sleep 2
+if ! kill -0 "$PID_ROSBAG" 2>/dev/null; then
+    echo "Warning: Rosbag process is not running"
+else
+    echo "Rosbag recording started successfully"
+fi
 
 # Wait for AWSIM to finish (this is the main process we're waiting for)
 wait "$PID_AWSIM"

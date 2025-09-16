@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>traj_follower_cpp</name>
+  <version>0.0.1</version>
+  <description>Simple trajectory follower (C++) overlay for Autoware.</description>
+  <license>Apache-2.0</license>
+  <maintainer email="you@example.com">you</maintainer>
+  <author email="you@example.com">you</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>autoware_auto_planning_msgs</depend>
+  <depend>autoware_auto_control_msgs</depend>
+
+  <export><build_type>ament_cmake</build_type></export>
+</package>

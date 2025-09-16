@@ -1,0 +1,4 @@
+source;share/traj_follower_cpp/local_setup.bash
+source;share/traj_follower_cpp/local_setup.dsv
+source;share/traj_follower_cpp/local_setup.sh
+source;share/traj_follower_cpp/local_setup.zsh
